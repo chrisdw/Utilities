@@ -1,10 +1,7 @@
 package uk.org.downesward.utiliites;
 
-import java.util.Random;
-
 public class Dice {
 	private Integer mintSides = 6;
-	private Random mobjGenerate = new Random();
 
 	public Dice() {
 		mintSides = 6;
@@ -18,14 +15,6 @@ public class Dice {
 		return mintSides;
 	}
 
-	public void setSeed(Random seed) {
-		this.mobjGenerate = seed;
-	}
-
-	public Random getSeed() {
-		return mobjGenerate;
-	}
-
 	public Integer roll() {
 		return this.roll(1);
 	}
@@ -35,7 +24,7 @@ public class Dice {
 		Integer intDie;
 
 		for (int intCount = 0; intCount < numRolls; intCount++) {
-			intDie = this.mobjGenerate.nextInt(mintSides - 1) + 1;
+			intDie = (int)(Math.random() * (mintSides-1)) + 1;
 			intResult += intDie;
 		}
 		return intResult;
